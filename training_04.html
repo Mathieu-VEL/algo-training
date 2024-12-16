@@ -17,16 +17,17 @@
         <p class="h6 font-weight-bold text-center">Consignes générales et éléments de départ</p>
         <ul>
             <li>Les consignes de l'exercice <em>Training #01</em> restent <strong>valables</strong>.</li>
-            <li>Les éléments de départ sont les mêmes que pour <em>Training #01</em> et restent utilisables dans les mêmes conditions.</li>
+            <li>Les éléments de départ sont les mêmes que pour <em>Training #01</em> et restent utilisables dans les
+                mêmes conditions.</li>
         </ul>
-     
+
         <h5 class="text-success text-center">Que la force soit avec vous !</h5>
     </div>
 
     <!-- subject -->
     <div class="card subject">
         <p class="h6 font-weight-bold text-center">Training #04 - Faisons évoluer la fonction de calcul</p>
-        <p>Repartir du code établi lors de l'exercice précédent (Training #03) et faire évoluer le code de la 
+        <p>Repartir du code établi lors de l'exercice précédent (Training #03) et faire évoluer le code de la
             fonction <code>cube</code> pour qu'elle retourne <em>x<sup>3</sup></em> si <em>x</em>
             est pair et <em>x<sup>2</sup></em> (c'est à dire </em>(x * x)</em>) si <em>x</em> est impair.
         </p>
@@ -51,6 +52,27 @@
 
         // YOUR CODE HERE...
 
+        function go() {
+            let number = document.getElementById("number").value;
+            if (number < 5 || number > 15)
+                alert("Le nombre doit être entre 5 et 15.");
+            else if (isNaN(number) || number === "") {
+                alert("Ce n'est pas un nombre valide.");
+            } else if (Number.isInteger(number)) {
+                alert("Ce n'est pas un nombre valide.");
+            }
+            else if (number % 2 === 0) {
+                let x2 = number * number;
+                console.log("Le carré de " + number + " est " + x2 + ".");
+            }
+            else{
+                let x3 = number * number * number;
+                console.log("Le cube de " + number + " est " + x3 + ".");
+            }
+        }
+
+
+ 
     </script>
 </body>
 

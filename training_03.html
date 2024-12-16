@@ -50,6 +50,20 @@
     <script type="text/javascript">
 
         // YOUR CODE HERE...
+
+        function go() {
+        let number = document.getElementById("number").value;
+        if (number < 5 || number > 15)
+          alert("Le nombre doit être entre 5 et 15.");
+        else if (isNaN(number) || number === "") {
+          alert("Ce n'est pas un nombre valide.");
+        } else if (Number.isInteger(number)) {
+          alert("Ce n'est pas un nombre valide.");
+        } else {
+          let cube = number ** number;
+          console.log("Le cube de " + number + " est " + cube + ".");
+        }
+      }
         
     </script>
 </body>
