@@ -84,10 +84,10 @@
 
         // YOUR CODE HERE...
 
-        let result = [];    // Crée un tableau vide pour stocker les nombres générés
+        let result = [];    // Crée un tableau vide pour stocker les nombres générés.
 
         function go() {
-            // Récupère la valeur saisie dans le champ d'entrée avec l'id "number"
+            // Récupère la valeur saisie dans le champ d'entrée avec l'id "number".
             let number = document.getElementById("number").value;
             // "isNaN" vérifie si la valeur n'est pas un nombre. Le deuxième test "number === ''" vérifie si le champ est vide.
             if (isNaN(number) || number === "") {
@@ -99,11 +99,11 @@
                 // Si le nombre est un entier, afficher une alerte pour indiquer que ce n'est pas un nombre valide.
                 alert("Ce n'est pas un nombre valide.");
             } else {
-                // Crée un tableau vide 'tab' pour stocker les résultats dans tab
+                // Crée un tableau vide 'tab' pour stocker les résultats dans tab.
                 let tab = []
-                // Effectue une boucle sur chaque élément du tableau 'result'
+                // Effectue une boucle sur chaque élément du tableau 'result'.
                 for (let i = 0; i < result.length; i++) {
-                    // Calcule le cube du nombre actuel, exemple: cube = 5 * 5 * 5'
+                    // Calcule le cube du nombre actuel, exemple: cube = 5 * 5 * 5'.
                     let cube = result[i] ** 3;
                     // Ajoute une chaîne de caractères décrivant le cube de ce nombre au tableau 'tab'
                     tab.push("Le cube de " + result[i] + " est " + cube + ".");
@@ -116,7 +116,7 @@
         }
 
         function generateSrcData() {
-            // Récupère les valeurs saisies dans les champs du formulaire
+            // Récupère les valeurs saisies dans les champs du formulaire.
             let number = document.getElementById("number").value;
             let borneinf = parseInt(document.getElementById("borne-inf").value);
             let bornesup = parseInt(document.getElementById("borne-sup").value);
@@ -125,21 +125,23 @@
                 alert("Les bornes doivent être des nombres valides.");
                 return;
             }
-            // Vérifie si la borne minimale est inférieure à la borne maximale
+            // Vérifie si la borne minimale est inférieure à la borne maximale.
             if (borneinf > bornesup) {
                 alert("La borne inférieure doit être inférieure à la borne supérieure.");
                 return;
             }
-            // Effectue une boucle pour calculer le cube de chaque nombre dans number
+            // Effectue une boucle pour calculer le cube de chaque nombre dans number.
             for (let i = 0; i < number; i++) {
-                // Génère un nombre aléatoire entre borneinf (inclus) et bornesup (inclus)
+                // Génère un nombre aléatoire entre borneinf (inclus) et bornesup (inclus).
+                // Math.floor élimine la partie décimale d'un nombre.
+                // Math.random() génère un nombre décimal compris entre 0 (inclus) et 1 (exclus).
                 let randomNumber = Math.floor(Math.random() * (bornesup - borneinf + 1)) + borneinf;
-                // Ajoute le nombre aléatoire généré à la liste 'result'
+                // Ajoute le nombre aléatoire généré à la liste 'result'.
                 result.push(randomNumber);
             }
-            // Affiche le tableau des résultats dans la console
+            // Affiche le tableau des résultats dans la console.
             console.log(result);
-            // Optionnel : Tu peux appeler une fonction pour afficher le tableau resultat 
+            // Appelle une fonction "displayArray" pour afficher le tableau resultat.
             displayArray(result);
         }
 
