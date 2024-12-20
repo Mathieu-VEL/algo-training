@@ -142,6 +142,13 @@
                 // Génère un nombre aléatoire entre borneinf (inclus) et bornesup (inclus).
                 // Math.floor élimine la partie décimale d'un nombre.
                 // Math.random() génère un nombre décimal compris entre 0 (inclus) et 1 (exclus).
+                // =======explication de Math.floor(Math.random() * (bornesup - borneinf + 1)) + borneinf;========//
+                // Si borneinf = 10 et bornesup = 20, voici comment ça se passe:
+                // Math.random() génère un nombre comme 0.538.
+                // (bornesup - borneinf + 1) donne 11, donc Math.random() * 11 = 0.538 * 11 = 5.918.
+                // Math.floor(5.918) donne 5.
+                // Ajouter borneinf(c'est-à-dire 10) donne 5 + 10 = 15.
+                // Le nombre aléatoire généré dans cet exemple est 15.
                 let randomNumber = Math.floor(Math.random() * (bornesup - borneinf + 1)) + borneinf;
                 // Ajoute le nombre aléatoire généré à la liste 'result'.
                 result.push(randomNumber);
@@ -155,5 +162,4 @@
     </script>
 
 </body>
-
 </html>
