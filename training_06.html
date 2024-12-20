@@ -127,11 +127,13 @@
             let bornesup = parseInt(document.getElementById("borne-sup").value);
             // Vérifie si les bornes sont valides.
             if (isNaN(borneinf) || isNaN(bornesup)) {
+                // Affiche une alert si borneinf n'est pas un nombre ou bornesupn n'est pas un nombre.
                 alert("Les bornes doivent être des nombres valides.");
                 return;
             }
             // Vérifie si la borne minimale est inférieure à la borne maximale.
             if (borneinf > bornesup) {
+                // Affiche une alert si inférieure est < supérieure.
                 alert("La borne inférieure doit être inférieure à la borne supérieure.");
                 return;
             }
