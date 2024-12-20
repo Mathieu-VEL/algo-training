@@ -1,66 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Training #05</title>
     <link href="./style/style.css" rel="stylesheet" />
     <script type="text/javascript" src="./js/tools.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- rules and instructions -->
     <div class="card instructions">
-        <p class="h6 font-weight-bold text-center">Consignes générales et éléments de départ</p>
-        <ul>
-            <li>Les consignes de l'exercice <em>Training #01</em> restent <strong>valables</strong>.</li>
-            <li>Les éléments de départ sont les mêmes que pour <em>Training #01</em> et restent utilisables dans les mêmes conditions.</li>
-        </ul>
-     
-        <h5 class="text-success text-center">Que la force soit avec vous !</h5>
+      <p class="h6 font-weight-bold text-center">
+        Consignes générales et éléments de départ
+      </p>
+      <ul>
+        <li>
+          Les consignes de l'exercice <em>Training #01</em> restent
+          <strong>valables</strong>.
+        </li>
+        <li>
+          Les éléments de départ sont les mêmes que pour
+          <em>Training #01</em> et restent utilisables dans les mêmes
+          conditions.
+        </li>
+      </ul>
+
+      <h5 class="text-success text-center">Que la force soit avec vous !</h5>
     </div>
 
     <!-- subject -->
     <div class="card subject">
-        <p class="h6 font-weight-bold text-center">Training #05 - On monte dans les tours !</p>
-        <p>Repartir du code établi lors de l'exercice précédent (Training #04) et faire évoluer le code de la 
-            fonction principale pour que le calcul réalisé par la fonction <code>cube</code> soit maintenant exécuté pour 
-            plusieurs valeurs <strong>allant de 1 en 1, depuis 1 jusqu'à la valeur saisie</strong> dans le champ du 
-            formulaire (cette valeur saisie doit être incluse dans le calcul).
-        </p>
-        <p>
-            Les résultats seront multiples ! Il faut donc les <strong>ranger dans un tableau</strong>.
-        </p>
-        <p>
-            Puisque le résultat attendu est maintenant un tableau, utiliser la fonction <code>displayArray</code> 
-            (donnée dans <em>js/tools.js</em>) pour afficher le résultat des calculs. 
-            Pour une utilisation correcte, bien lire le commentaire et la signature de cette fonction !
-        </p>
+      <p class="h6 font-weight-bold text-center">
+        Training #05 - On monte dans les tours !
+      </p>
+      <p>
+        Repartir du code établi lors de l'exercice précédent (Training #04) et
+        faire évoluer le code de la fonction principale pour que le calcul
+        réalisé par la fonction <code>cube</code> soit maintenant exécuté pour
+        plusieurs valeurs
+        <strong>allant de 1 en 1, depuis 1 jusqu'à la valeur saisie</strong>
+        dans le champ du formulaire (cette valeur saisie doit être incluse dans
+        le calcul).
+      </p>
+      <p>
+        Les résultats seront multiples ! Il faut donc les
+        <strong>ranger dans un tableau</strong>.
+      </p>
+      <p>
+        Puisque le résultat attendu est maintenant un tableau, utiliser la
+        fonction <code>displayArray</code> (donnée dans <em>js/tools.js</em>)
+        pour afficher le résultat des calculs. Pour une utilisation correcte,
+        bien lire le commentaire et la signature de cette fonction !
+      </p>
     </div>
 
     <!-- html input wrapper -->
     <div class="card input">
-        <div class="formulaire">
-            <input type="text" id="number" size=20 placeholder="Un nombre entre 5 et 15">
-            <button type="button" class="btn btn-primary" onclick="go()">
-                Go !
-            </button>
-        </div>
+      <div class="formulaire">
+        <input
+          type="text"
+          id="number"
+          size="20"
+          placeholder="Un nombre entre 5 et 15"
+        />
+        <button type="button" class="btn btn-primary" onclick="go()">
+          Go !
+        </button>
+      </div>
     </div>
 
     <!-- html display area wrapper -->
-    <div class="card result" id="result">
-    </div>
+    <div class="card result" id="result"></div>
 
     <!-- javascript part -->
     <script type="text/javascript">
+      // YOUR CODE HERE...
 
-        // YOUR CODE HERE...
+      function go() {
+        let number = document.getElementById("number").value;
+        if (number < 5 || number > 15) {
+          alert("Le nombre doit être entre 5 et 15.");
+        } else if (isNaN(number) || number === "") {
+          alert("Ce n'est pas un nombre valide.");
+        } else if (Number.isInteger(Number(number)) === false) {
+          alert("Ce n'est pas un nombre valide.");
+        } else {
+          let results = [];
+          for (let i = 1; i <= number; i++) {
+            let cube = i * i * i;
+            results.push("Le cube de " + i + " est " + cube + ".");
+          }
+          console.log(results);
+          displayArray(results);
+        }
+      }
 
+      function displayArray(arr) {
+        let resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+        arr.forEach((item) => {
+          let p = document.createElement("p");
+          p.textContent = item;
+          resultDiv.appendChild(p);
+        });
+      }
+      
     </script>
-</body>
-
+  </body>
 </html>
