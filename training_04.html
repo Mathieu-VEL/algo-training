@@ -52,21 +52,40 @@
 
         // YOUR CODE HERE...
 
-        function go() {
-            let number = document.getElementById("number").value;
-            if (number < 5 || number > 15)
-                alert("Le nombre doit être entre 5 et 15.");
-            else if (isNaN(number) || number === "") {
-                alert("Ce n'est pas un nombre valide.");
-            } else if (Number.isInteger(number)) {
-                alert("Ce n'est pas un nombre valide.");
-            }
+      //   function nomDeLaFonction(parametre1, parametre2) {
+      // Corps de la fonction : instructions à exécuter
+      // Vous pouvez utiliser parametre1 et parametre2 dans le corps de la fonction
+      //   }
+      
+      function go() {
+        // Récupère la valeur saisie dans le champ d'entrée avec l'id "number"
+        let number = document.getElementById("number").value;
+        // Vérifie si le nombre est en dehors de l'intervalle de 5 à 15 (exclus).
+        if (number < 5 || number > 15)
+          alert("Le nombre doit être entre 5 et 15.");
+        // Vérifie si la valeur saisie n'est pas un nombre valide ou si le champ est vide.
+        // "isNaN" vérifie si la valeur n'est pas un nombre. Le deuxième test "number === ''" vérifie si le champ est vide.
+        else if (isNaN(number) || number === "") {
+          // Si la valeur n'est pas un nombre valide, afficher une alerte pour indiquer que l'entrée est invalide.
+          alert("Ce n'est pas un nombre valide.");
+          // Vérifie si le nombre est un entier (pas un nombre décimal).
+          // Number.isInteger(number) retourne true si 'number' est un entier, sinon false.
+        } else if (Number.isInteger(number)) {
+          // Si le nombre est un entier, afficher une alerte pour indiquer que ce n'est pas un nombre valide.
+          alert("Ce n'est pas un nombre valide.");
+        }
+            // Si aucune des conditions précédentes n'est vraie, vérifie si le nombre est pair
             else if (number % 2 === 0) {
+                // Si le nombre est pair, calcule son carré
                 let x2 = number * number;
+                // Affiche dans la console le carré du nombre
                 console.log("Le carré de " + number + " est " + x2 + ".");
             }
+            // Si aucune des conditions précédentes n'est vraie, cela signifie que le nombre est impair
             else{
+                // Calcule le cube du nombre
                 let x3 = number * number * number;
+                // Affiche dans la console le cube du nombre
                 console.log("Le cube de " + number + " est " + x3 + ".");
             }
         }

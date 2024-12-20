@@ -17,44 +17,50 @@
         <p class="h6 font-weight-bold text-center">Consignes générales et éléments de départ</p>
         <ul>
             <li>Les consignes de l'exercice <em>Training #01</em> restent <strong>valables</strong>.</li>
-            <li>Les éléments de départ sont les mêmes que pour <em>Training #01</em> et restent utilisables dans les mêmes conditions.</li>
+            <li>Les éléments de départ sont les mêmes que pour <em>Training #01</em> et restent utilisables dans les
+                mêmes conditions.</li>
         </ul>
-     
+
         <h5 class="text-success text-center">Que la force soit avec vous !</h5>
     </div>
 
     <!-- subject -->
     <div class="card subject">
         <p class="h6 font-weight-bold text-center">Training #06 - Synthèse</p>
-        <p>En s'inspirant de la réflexion et du code mis en oeuvre lors des 4 exercices précédents (Training #02 à #05) 
+        <p>En s'inspirant de la réflexion et du code mis en oeuvre lors des 4 exercices précédents (Training #02 à #05)
             réaliser les points suivants :
-            <ol>
-                <li>Récupérer la fonction <code>cube</code> depuis l'exercice Training #05. Elle sera utilisée telle 
-                    que ; inutile de la modifier.</li>
-                <li>Écrire une fonction <code>generateSrcData</code> qui construit un tableau de valeurs aléatoires.<br>
-                    Cette fonction est appelée par appui sur le bouton "Generate".<br>
-                    Pour construire le tableau, <code>generateSrcData</code> utilise la fonction <code>randomArrayOfIntFromInterval</code> mise à 
-                    disposition dans <em>js/tools.js</em>.<br>
-                    Les paramètres de construction du tableau sont acquis à travers le formulaire d'entrée:
-                    <ul>
-                        <li>nombre d'éléments de la série</li>
-                        <li>valeur minimum de la série générée</li>
-                        <li>valeur maximum de la série générée</li>
-                    </ul>
-                    Le tableau généré par <code>generateSrcData</code> est stocké dans une variable 
-                    qui devra être partagée avec les autres fonctions du code.</li>
-                <li>Écrire la fonction <code>go</code> qui s'exécute lors de l'appui sur le bouton "Go !".<br>
-                    Cette fonction exploite le tableau des valeurs "sources" 
-                    qui auront été générées auparavant (par l'appui sur le bouton "Generate").<br>
-                    Cette fonction a pour tâche de construire un nouveau tableau qui contient la transformation du tableau "source" 
-                    par la fonction <code>cube</code>. C'est à dire que le tableau "résultat" ainsi construit contient les données 
-                    du tableau "source", une à une transformées par la fonction <code>cube</code>.<br>
-                    <br>
-                    Le tableau "résultat" sera restitué à l'utilisateur en utilisant la fonction fournie <code>displayArray</code>.
-                </li>
-            </ol>
+        <ol>
+            <li>Récupérer la fonction <code>cube</code> depuis l'exercice Training #05. Elle sera utilisée telle
+                que ; inutile de la modifier.</li>
+            <li>Écrire une fonction <code>generateSrcData</code> qui construit un tableau de valeurs aléatoires.<br>
+                Cette fonction est appelée par appui sur le bouton "Generate".<br>
+                Pour construire le tableau, <code>generateSrcData</code> utilise la fonction
+                <code>randomArrayOfIntFromInterval</code> mise à
+                disposition dans <em>js/tools.js</em>.<br>
+                Les paramètres de construction du tableau sont acquis à travers le formulaire d'entrée:
+                <ul>
+                    <li>nombre d'éléments de la série</li>
+                    <li>valeur minimum de la série générée</li>
+                    <li>valeur maximum de la série générée</li>
+                </ul>
+                Le tableau généré par <code>generateSrcData</code> est stocké dans une variable
+                qui devra être partagée avec les autres fonctions du code.
+            </li>
+            <li>Écrire la fonction <code>go</code> qui s'exécute lors de l'appui sur le bouton "Go !".<br>
+                Cette fonction exploite le tableau des valeurs "sources"
+                qui auront été générées auparavant (par l'appui sur le bouton "Generate").<br>
+                Cette fonction a pour tâche de construire un nouveau tableau qui contient la transformation du tableau
+                "source"
+                par la fonction <code>cube</code>. C'est à dire que le tableau "résultat" ainsi construit contient les
+                données
+                du tableau "source", une à une transformées par la fonction <code>cube</code>.<br>
+                <br>
+                Le tableau "résultat" sera restitué à l'utilisateur en utilisant la fonction fournie
+                <code>displayArray</code>.
+            </li>
+        </ol>
         </p>
-        
+
     </div>
 
     <!-- html input wrapper -->
@@ -78,10 +84,66 @@
 
         // YOUR CODE HERE...
 
+        let result = [];    // Crée un tableau vide pour stocker les nombres générés
+
+        function go() {
+            // Récupère la valeur saisie dans le champ d'entrée avec l'id "number"
+            let number = document.getElementById("number").value;
+            // "isNaN" vérifie si la valeur n'est pas un nombre. Le deuxième test "number === ''" vérifie si le champ est vide.
+            if (isNaN(number) || number === "") {
+                // Si la valeur n'est pas un nombre valide, afficher une alerte pour indiquer que l'entrée est invalide.
+                alert("Ce n'est pas un nombre valide.");
+                // Vérifie si le nombre est un entier (pas un nombre décimal).
+                // Number.isInteger(number) retourne true si 'number' est un entier, sinon false.
+            } else if (Number.isInteger(number)) {
+                // Si le nombre est un entier, afficher une alerte pour indiquer que ce n'est pas un nombre valide.
+                alert("Ce n'est pas un nombre valide.");
+            } else {
+                // Crée un tableau vide 'tab' pour stocker les résultats dans tab
+                let tab = []
+                // Effectue une boucle sur chaque élément du tableau 'result'
+                for (let i = 0; i < result.length; i++) {
+                    // Calcule le cube du nombre actuel, exemple: cube = 5 * 5 * 5'
+                    let cube = result[i] ** 3;
+                    // Ajoute une chaîne de caractères décrivant le cube de ce nombre au tableau 'tab'
+                    tab.push("Le cube de " + result[i] + " est " + cube + ".");
+                }
+                // Affiche le tableau de tab dans la console.
+                console.log(tab);
+                // Appelle une fonction "displayArray" pour afficher le tableau de tab.
+                displayArray(tab);
+            }
+        }
+
+        function generateSrcData() {
+            // Récupère les valeurs saisies dans les champs du formulaire
+            let number = document.getElementById("number").value;
+            let borneinf = parseInt(document.getElementById("borne-inf").value);
+            let bornesup = parseInt(document.getElementById("borne-sup").value);
+            // Vérifie si les bornes sont valides
+            if (isNaN(borneinf) || isNaN(bornesup)) {
+                alert("Les bornes doivent être des nombres valides.");
+                return;
+            }
+            // Vérifie si la borne minimale est inférieure à la borne maximale
+            if (borneinf > bornesup) {
+                alert("La borne inférieure doit être inférieure à la borne supérieure.");
+                return;
+            }
+            // Effectue une boucle pour calculer le cube de chaque nombre dans number
+            for (let i = 0; i < number; i++) {
+                // Génère un nombre aléatoire entre borneinf (inclus) et bornesup (inclus)
+                let randomNumber = Math.floor(Math.random() * (bornesup - borneinf + 1)) + borneinf;
+                // Ajoute le nombre aléatoire généré à la liste 'result'
+                result.push(randomNumber);
+            }
+            // Affiche le tableau des résultats dans la console
+            console.log(result);
+            // Optionnel : Tu peux appeler une fonction pour afficher le tableau resultat 
+            displayArray(result);
+        }
+
     </script>
+
 </body>
-
 </html>
-
-
-

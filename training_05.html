@@ -81,35 +81,43 @@
     <script type="text/javascript">
       // YOUR CODE HERE...
 
+      //   function nomDeLaFonction(parametre1, parametre2) {
+      // Corps de la fonction : instructions à exécuter
+      // Vous pouvez utiliser parametre1 et parametre2 dans le corps de la fonction
+      //   }
+
       function go() {
+        // Récupère la valeur saisie dans le champ d'entrée avec l'id "number"
         let number = document.getElementById("number").value;
-        if (number < 5 || number > 15) {
+        // Vérifie si le nombre est en dehors de l'intervalle de 5 à 15 (exclus).
+        if (number < 5 || number > 15)
           alert("Le nombre doit être entre 5 et 15.");
-        } else if (isNaN(number) || number === "") {
+        // Vérifie si la valeur saisie n'est pas un nombre valide ou si le champ est vide.
+        // "isNaN" vérifie si la valeur n'est pas un nombre. Le deuxième test "number === ''" vérifie si le champ est vide.
+        else if (isNaN(number) || number === "") {
+          // Si la valeur n'est pas un nombre valide, afficher une alerte pour indiquer que l'entrée est invalide.
           alert("Ce n'est pas un nombre valide.");
-        } else if (Number.isInteger(Number(number)) === false) {
+          // Vérifie si le nombre est un entier (pas un nombre décimal).
+          // Number.isInteger(number) retourne true si 'number' est un entier, sinon false.
+        } else if (Number.isInteger(number)) {
+          // Si le nombre est un entier, afficher une alerte pour indiquer que ce n'est pas un nombre valide.
           alert("Ce n'est pas un nombre valide.");
         } else {
+          // Crée un tableau vide pour stocker les résultats.
           let results = [];
+          // Effectue une boucle de 1 à "number" pour calculer le cube de chaque nombre.
           for (let i = 1; i <= number; i++) {
+            // Calcule le cube du nombre actuel (i * i * i).
             let cube = i * i * i;
+            // Ajoute une chaîne décrivant le cube de ce nombre au tableau 'results'.
             results.push("Le cube de " + i + " est " + cube + ".");
           }
+          // Affiche le tableau de résultats dans la console.
           console.log(results);
+          // Appelle une fonction "displayArray" pour afficher le tableau de résultats.
           displayArray(results);
         }
       }
-
-      function displayArray(arr) {
-        let resultDiv = document.getElementById("result");
-        resultDiv.innerHTML = "";
-        arr.forEach((item) => {
-          let p = document.createElement("p");
-          p.textContent = item;
-          resultDiv.appendChild(p);
-        });
-      }
-      
     </script>
   </body>
 </html>
